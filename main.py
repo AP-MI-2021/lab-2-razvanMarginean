@@ -12,7 +12,11 @@ def get_largest_prime_below(n):
     '''
     Determina cel mai mare numar prim mai mic decat n
     :param n: intreg
+<<<<<<< HEAD
     :return: cel mai mare numar prim mai mic decat  n
+=======
+    :return: cel mai mare numar prim mai mic decat n
+>>>>>>> fc6efc6b3f5ed2d34946f97687469143087b4891
     '''
     for i in range(n, 2, -1):
         check = is_prime(i)
