@@ -1,3 +1,25 @@
+def test_is_palindrome():
+    assert is_palindrome(45) == False
+    assert is_palindrome(555) == True
+    assert is_palindrome(4554) == True
+    assert is_palindrome(1221) == True
+
+def is_palindrome(n):
+    '''
+    varifica daca numarule este palindrom
+    :param n: natural
+    :return: True sau False
+    '''
+    oglindit = 0
+    copie = n
+    while copie !=0:
+        oglindit = oglindit*10 + copie %10
+        copie = copie//10
+    if oglindit == n:
+        return True
+    else:
+        return False
+
 def is_prime(n):
     prim = True
     if n < 2:
@@ -16,7 +38,6 @@ def get_largest_prime_below(n):
     :return: cel mai mare numar prim mai mic decat  n
 =======
     :return: cel mai mare numar prim mai mic decat n
->>>>>>> fc6efc6b3f5ed2d34946f97687469143087b4891
     '''
     for i in range(n, 2, -1):
         check = is_prime(i)
@@ -59,11 +80,13 @@ def test_get_n_choose_k():
 
 
 def main():
+    test_is_palindrome()
     test_get_largest_prime_below()
     test_get_largest_prime_below()
     while True:
         print('1.Cel mai mare numar prim mai mic decat un numar ales')
         print('2.Calculeaza combinari de n luate cate k')
+        print("3.Verifica daca un numar este palindrom")
         print('3.Exit')
         optiune = input('Alege optiune:')
         if optiune == '1':
@@ -76,7 +99,11 @@ def main():
             rezultat = get_n_choose_k(n, k)
             print(f'Rezultatul operatiei combinari de n luate cate k este:{rezultat}')
         elif optiune == '3':
-            break
+            numar = int(input("Alege numar:"))
+            if is_palindrome(numar) == True:
+                print("Numarul este palindrom")
+            else:
+                print("Numarul nu este palindrom")
         else:
             print('Optiune invalida')
 
